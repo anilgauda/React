@@ -13,7 +13,6 @@ export class Service {
     }
 
     async createPost({title,slug,content,featuredImage,status,userId}) {
-        console.log("createPost started")
         try {
             return await this.databases.createDocument(config.appwriteDatabaseId,config.appwriteCollectiontId,slug,{title,content,featuredImage,status,userId});
         } catch (error) {
@@ -49,7 +48,6 @@ export class Service {
     }
 
     async getPosts(queries = [Query.equal("status","active")]) {
-        console.log('getPosts is called')
         try {
             return await this.databases.listDocuments(config.appwriteDatabaseId,config.appwriteCollectiontId,queries)
         } catch (error) {

@@ -8,7 +8,6 @@ function EditPost() {
     const navigate = useNavigate()
 
     useEffect(()=>{
-        console.log('Edit post is called')
         if(slug) {
             service.getPost(slug).then(post =>{
                 if(post) {

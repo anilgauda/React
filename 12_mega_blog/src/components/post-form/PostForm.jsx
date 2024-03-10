@@ -6,7 +6,6 @@ import service from '../../appwrite/config'
 import { Button, Input, RTE, Select } from "..";
 
 function PostForm({post}) {
-    console.log('Post form is called ')
     const {register,handleSubmit, watch, setValue, control,getValues} = useForm({defaultValues:{
         title:post?.title || "",
         slug:post?.slug || "",
@@ -16,11 +15,9 @@ function PostForm({post}) {
 
     const navigate = useNavigate();
     const userData = useSelector(state => state.auth.userData)
-    
+
     const submit = async(data) =>{
-        console.log("Submit clicked")
     if (post) {
-        console.log("From Edit post ")
         const file = data.image[0] ? await service.uploadFile(data.image[0]) : null;
         if (file){
             service.deleteFile(post.featuredImage)
