@@ -1,4 +1,9 @@
 # React
 Learning React
 # Notes
-Research about : https://www.radix-ui.com/
+
+React UI lib
+* https://ui.aceternity.com/
+* https://ui.shadcn.com/
+* https://www.radix-ui.com/
+
