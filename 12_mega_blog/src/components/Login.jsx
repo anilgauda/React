@@ -6,7 +6,7 @@ import {login as storeLogin} from '../store/authSlice'
 import authService from '../appwrite/auth';
 import Input from './Input';
 import Button from './Button';
-
+import Logo from './Logo';
 function Login() {
     const navigate = useNavigate();
     const dispatch = useDispatch();

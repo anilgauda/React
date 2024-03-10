@@ -3,8 +3,10 @@ import { useForm } from 'react-hook-form'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import service from '../../appwrite/config'
+import { Button, Input, RTE, Select } from "..";
 
 function PostForm({post}) {
+    console.log('Post form is called ')
     const {register,handleSubmit, watch, setValue, control,getValues} = useForm({defaultValues:{
         title:post?.title || "",
         slug:post?.slug || "",
@@ -13,10 +15,13 @@ function PostForm({post}) {
     }});
 
     const navigate = useNavigate();
-    const userData = useSelector(state => state.user.userData)
+    const userData = useSelector(state => state.auth.userData)
+    
     const submit = async(data) =>{
+        console.log("Submit clicked")
     if (post) {
-        const file = data.image[0] ? service.uploadFile(data.image[0]) : null;
+        console.log("From Edit post ")
+        const file = data.image[0] ? await service.uploadFile(data.image[0]) : null;
         if (file){
             service.deleteFile(post.featuredImage)
         }
@@ -24,7 +29,8 @@ function PostForm({post}) {
 
         if (dbPost) {
             navigate(`/post/${dbPost.$id}`)
-        } else{
+        } 
+         }else{
             const file = await service.uploadFile(data.image[0]);
             if(file) {
                 const fileId = file.$id;
@@ -38,7 +44,7 @@ function PostForm({post}) {
             }
         }
     }
-    }
+
     const slugTransform =  useCallback((value)=>{
         if(value &&typeof value ==='string') {
             return value.trim().toLowerCase().replace(/[^a-zA-Z\d\s]+/g, "-").replace(/\s/g, "-");
@@ -86,7 +92,7 @@ function PostForm({post}) {
         {post && (
             <div className="w-full mb-4">
                 <img
-                    src={appwriteService.getFilePreview(post.featuredImage)}
+                    src={service.previewFile(post.featuredImage)}
                     alt={post.title}
                     className="rounded-lg"
                 />

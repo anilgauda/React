@@ -18,8 +18,6 @@ export default function Protected({children, authentication =true}){
             navigate("/")
         }
         setLoader(false)
-    },[authStatus,navigate]);
-return(
-    <div>Authlayout</div>
-)
+    },[authStatus,navigate,authentication]);
+return loader? <h1>Loading...</h1> : <>{children}</>
 }

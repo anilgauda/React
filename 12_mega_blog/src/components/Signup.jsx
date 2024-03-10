@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import authService from '../appwrite/auth'
 import { login } from '../store/authSlice'
+import Logo from './Logo'
 import Input from './Input'
 import Button from './Button'
 
@@ -53,7 +54,7 @@ function Signup() {
         <Input label="Email: " type ='email' placeholder= "Enter your email" {...register("email",{required:true, validate:{
                 matchPattern:(value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) || "Email address must be valid",
             }})}/>
-        <Input label="Password: " placeholder= "Enter Password"{...register("password",{required:true})}/>
+        <Input label="Password: " type="password" placeholder= "Enter Password"{...register("password",{required:true})}/>
         <Button type='submit' className='w-full'>Create Account</Button>
         </div>
         </form>

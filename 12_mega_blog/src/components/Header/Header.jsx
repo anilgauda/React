@@ -24,12 +24,12 @@ function Header() {
     {
       name:"All Posts",
       slug:"/all-posts",
-      active: !authStatus,
+      active: authStatus,
     },
     {
       name:"Add post",
       slug:"/add-post",
-      active: !authStatus,
+      active: authStatus,
     }
   ]
   return (
@@ -44,7 +44,7 @@ function Header() {
           <ul className='flex ml-auto'>
             {
               navItems.map((item)=>
-                item.active? <li key={item.name}><button className = 'inline-block px-6 py-2 duration-200 hover:bg-blue-100 rounded-full' onClick={() => navigate(item.slug)}>{item.name}</button></li> : null
+                item.active ? <li key={item.name}><button className = 'inline-block px-6 py-2 duration-200 hover:bg-blue-100 rounded-full' onClick={() => navigate(item.slug)}>{item.name}</button></li> : null
               )
             }
             {authStatus && <li><LogoutBtn/></li>}
