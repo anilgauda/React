@@ -16,7 +16,7 @@ Currently, two official plugins are available:
 {id: ,list_id: ,title: , description:, created_date:, is_active, due_date:, reminder_date}
 Use website: https://www.jsongenerator.io/
 Query: {
-  "result": [
+  "data": [
     "repeat(15)",
 {"id": "int(1,999)" ,"list_id": "int(1,999)" ,
 "title":"productName()" , 
