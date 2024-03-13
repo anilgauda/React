@@ -23,7 +23,14 @@ Query: {
 "description":"productDescription()" , 
 "created_date":"date()" , 
 "is_active":"enum(true,false)",
- "due_date":"date()" , "reminder_date":"date()"
+ "due_date":"date()" , "reminder_date":"date()",
+"column": "enum(backlog,todo,doing,done)"
+
 }
   ]
 }
+
+# Components
+* Board
+* Column
+* Card

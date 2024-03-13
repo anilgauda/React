@@ -2,19 +2,19 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { Button } from './components/ui/button'
-import Task from './pages/Task'
+import Board from './pages/Board'
+import Kanban from './components/kanban'
+import Column from './pages/Column'
+import Card from './components/Card'
 
 function App() {
 
   return (
     <>
-    <div>
-      <Button>Shadcn Button</Button>
-    </div>
-    <div>
-    <Task/>
-    </div>
+    <Kanban>
+      <Board>
+      </Board>
+    </Kanban>
     </>
   )
 }
