@@ -3,6 +3,7 @@ import './App.css'
 import Board from './pages/Board'
 
 import { useGetCardsQuery } from './store/cardApiSlice'
+import Modal from './pages/Modal'
 
 function App() {
   const [count, setCount] = useState(0)
