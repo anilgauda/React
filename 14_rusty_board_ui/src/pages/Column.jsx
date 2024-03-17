@@ -8,7 +8,7 @@ function Column({title, id}) {
   const [active,setActive] =useState(false);
   const {data,isLoading} = useGetCardsQuery();
   const [displayModal, setDisplayModal] = useState(false);
-  
+
   let filteredCards= [];
   if(!isLoading) {
     filteredCards= data.filter(card => card.column===id)
@@ -43,7 +43,7 @@ const handleOnClick =(event) =>{
         { filteredCards.map(card => <Card {...card}/>) }
         </div>
         <div className='text-start ml-1'>
-        {displayModal? <Modal/> : <Button text={"Add"} onClick ={handleOnClick}/>} 
+        {displayModal? <Modal setDisplayModal={setDisplayModal} columnId={id}/> : <Button text={"Add"} onClick ={handleOnClick}/>}
         </div>
       </div>
 
