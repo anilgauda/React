@@ -12,3 +12,12 @@ Color Pallet Selection
 * Main Color : #0F172A bg-slate-900
 * Text Color: #F7F0F0 text-slate-50
 * Call to Action: #70EE9C bg-emerald-500
+
+
+Change Logs
+
+cardApiSplice.js
+dummy_data copy
+card.jsx
+column.jsx
+package.json

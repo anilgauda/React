@@ -7,17 +7,32 @@ export const cardApiSlice = createApi({
     endpoints: (builder) =>({
         getCards: builder.query({
             query: ()=>'/data',
-            providesTags:'Cards',
+            providesTags:['Cards'],
         }),
         createCard: builder.mutation ({
             query:(body) => ({
                 url: "/data",
                 method: "POST",
                 body
-            }),
+            }), 
             invalidatesTags:['Cards'],
+        }),
+        updateCard: builder.mutation({
+            query: ({cardId,...body}) =>({
+                url:`/data/${cardId}`,
+                method: "PATCH",
+                body
+            }),
+            invalidatesTags:["Cards"]
+        }),
+        deleteCard: builder.mutation({
+            query:({cardId}) =>({
+                url:`/data/${cardId}`,
+                method: "DELETE",
+            }),
+            invalidatesTags:["Cards"]
         })
     })
 })
 
-export const{useGetCardsQuery, useCreateCardMutation} = cardApiSlice
+export const{useGetCardsQuery, useCreateCardMutation, useUpdateCardMutation, useDeleteCardMutation} = cardApiSlice

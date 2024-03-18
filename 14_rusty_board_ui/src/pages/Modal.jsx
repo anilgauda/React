@@ -3,6 +3,7 @@ import Button from '../components/Button';
 import {useForm} from 'react-hook-form';
 import { useCreateCardMutation } from '../store/cardApiSlice';
 import { nanoid } from 'nanoid';
+import { motion } from 'framer-motion';
 
 function Modal({setDisplayModal,columnId}) {
   const [active, setActive] =useState(true);
@@ -29,13 +30,12 @@ function Modal({setDisplayModal,columnId}) {
   }
   const onSubmit = (data) => {
     const newCard = {...data,column:columnId,created_date:getCurrentDate(),id:nanoid()}
-    console.log("new_card--->",newCard)
     createCard({...newCard})
     setActive(false)
     setDisplayModal(false)
   }
   return (
-    <div className={`${active? "": "hidden"} fixed inset-0 bg-opacity-0 backdrop-blur-sm flex justify-center items-center bg-slate-900 `}>
+    <motion.div layout className={`${active? "": "hidden"} fixed inset-0 bg-opacity-0 backdrop-blur-sm flex justify-center items-center bg-slate-900 `}>
       <div className='w-[400px] h-[475px] bg-slate-700 rounded-xl'>
         <div className='flex w-full h-full'>
           <form onSubmit={handleSubmit(onSubmit)} className='flex flex-wrap flex-col w-full h-full p-5 text-slate-700 gap-1'>
@@ -46,11 +46,10 @@ function Modal({setDisplayModal,columnId}) {
             <Button text={"Submit"} type ="submit" className={'text-slate-900 text-md bg-green-400 w-fit rounded-md p-1'}/>
             <Button text={"Cancel"} className={' text-slate-50 text-md hover:text-green-400'} onClick={handleOnClose}/>
             </div>
-
           </form>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
