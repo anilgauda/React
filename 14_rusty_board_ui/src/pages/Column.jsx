@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useGetCardsQuery, useUpdateCardMutation } from '../store/cardApiSlice';
-import Card from '../components/Card'
+import Card from './Card'
 import Button from '../components/Button';
 import Modal from './Modal';
 import {motion} from 'framer-motion'
@@ -41,7 +41,7 @@ function Column({title, id}) {
   event.preventDefault();
   setDisplayModal(true)
 }
-  return isLoading?<h2>Loading...</h2> : (
+  return isLoading?<h2 className='text-slate-50'>Loading...</h2> : (
     <motion.div layout key= {id} className='w-1/5 text-slate-50 mt-4'>
       <div className='w-full flex justify-between ml-1'>
         <h3>{title}</h3>
