@@ -6,12 +6,12 @@ export const cardApiSlice = createApi({
     tagTypes:['Cards'],
     endpoints: (builder) =>({
         getCards: builder.query({
-            query: ()=>'/data',
+            query: ()=>'/cards',
             providesTags:['Cards'],
         }),
         createCard: builder.mutation ({
             query:(body) => ({
-                url: "/data",
+                url: "/cards",
                 method: "POST",
                 body
             }), 
@@ -19,7 +19,7 @@ export const cardApiSlice = createApi({
         }),
         updateCard: builder.mutation({
             query: ({cardId,...body}) =>({
-                url:`/data/${cardId}`,
+                url:`/cards/${cardId}`,
                 method: "PATCH",
                 body
             }),
@@ -27,7 +27,7 @@ export const cardApiSlice = createApi({
         }),
         deleteCard: builder.mutation({
             query:({cardId}) =>({
-                url:`/data/${cardId}`,
+                url:`/cards/${cardId}`,
                 method: "DELETE",
             }),
             invalidatesTags:["Cards"]

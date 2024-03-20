@@ -3,7 +3,6 @@ import Button from '../components/Button';
 import {useForm} from 'react-hook-form';
 import { useCreateCardMutation } from '../store/cardApiSlice';
 import { nanoid } from 'nanoid';
-import { motion } from 'framer-motion';
 import { useUpdateCardMutation } from '../store/cardApiSlice';
 
 function Modal({setDisplayModal,columnId,card}) {
@@ -33,10 +32,10 @@ function Modal({setDisplayModal,columnId,card}) {
   const onSubmit = (data) => {  
     if(card) {
       const cardId= card.id;
-      const updatedCard = {...data,column:card.column,created_date:card.created_date,id:card.id}
+      const updatedCard = {...data,column_id:card.column_id,created_date:card.created_date,id:card.id}
       updateCard({cardId,...updatedCard});
     } else {
-      const newCard = {...data,column:columnId,created_date:getCurrentDate(),id:nanoid()}
+      const newCard = {...data,column_id:columnId,created_date:getCurrentDate(),id:nanoid()}
       createCard({...newCard})
     }
 

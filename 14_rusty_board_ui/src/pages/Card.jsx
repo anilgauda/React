@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { FaEdit } from "react-icons/fa";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { useDeleteCardMutation } from '../store/cardApiSlice';
 import {motion} from 'framer-motion'
@@ -46,7 +45,6 @@ function Card({id,title, description, created_date, due_date }) {
         <div className='flex flex-row justify-between'>
             <h2>{title}</h2>
             {active ? <div className='flex flex-row gap-1 hover:cursor-default'>
-              {/* <button className='text-lg text-gray-600'><FaEdit /></button> */}
               <button className='text-2xl text-red-700' onClick={(event) =>handleDeleteCard(event,id)}><MdOutlineDeleteForever /></button>
             </div>:''}
         </div>

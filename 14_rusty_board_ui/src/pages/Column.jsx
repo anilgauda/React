@@ -12,8 +12,9 @@ function Column({title, id}) {
   const [displayModal, setDisplayModal] = useState(false);
   const [updateCard] =useUpdateCardMutation();
   let filteredCards= [];
+
   if(!isLoading) {
-    filteredCards= data.filter(card => card.column===id)
+    filteredCards= data.filter(card => card.column_id===id)
   }
 
   const handleOnDragEnter = (event) =>{
@@ -34,7 +35,7 @@ function Column({title, id}) {
 
   const handleOnDropEnd = (event) =>{
     const cardId= event.dataTransfer.getData("cardId");
-    updateCard({cardId,column:id})
+    updateCard({cardId,column_id:id})
     setActive(false);
   }
 
@@ -43,9 +44,9 @@ function Column({title, id}) {
   setDisplayModal(true)
 }
   return isLoading?<h2 className='text-slate-50'><FaSpinner /></h2> : (
-    <motion.div layout key= {id} className='w-1/5 text-slate-50 mt-4'>
-      <div className='w-full flex justify-between ml-1'>
-        <h3>{title}</h3>
+    <motion.div layout key= {id} className='w-1/5 text-slate-50'>
+      <div className='w-full flex justify-between px-3'>
+        <h3 >{title}</h3>
         <p>{filteredCards.length}</p>
       </div>
       <motion.div layout className={`w-full h-full ${active?'bg-slate-800':''} flex flex-col mt-4 px-2`} onDragOver={handleOnDragOver} onDragEnter={handleOnDragEnter} onDragLeave={handleOnDragLeave} onDrop={(event) => handleOnDropEnd(event)}>
