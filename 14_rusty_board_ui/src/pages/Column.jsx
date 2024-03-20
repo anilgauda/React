@@ -4,6 +4,7 @@ import Card from './Card'
 import Button from '../components/Button';
 import Modal from './Modal';
 import {motion} from 'framer-motion'
+import { FaSpinner } from "react-icons/fa6";
 
 function Column({title, id}) {
   const [active,setActive] =useState(false);
@@ -41,7 +42,7 @@ function Column({title, id}) {
   event.preventDefault();
   setDisplayModal(true)
 }
-  return isLoading?<h2 className='text-slate-50'>Loading...</h2> : (
+  return isLoading?<h2 className='text-slate-50'><FaSpinner /></h2> : (
     <motion.div layout key= {id} className='w-1/5 text-slate-50 mt-4'>
       <div className='w-full flex justify-between ml-1'>
         <h3>{title}</h3>
