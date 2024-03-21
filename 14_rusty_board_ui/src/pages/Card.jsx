@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { useDeleteCardMutation } from '../store/cardApiSlice';
 import {motion} from 'framer-motion'
-import Modal from './Modal';
+import Modal from './AddEditCard';
 
 function Card({id,title, description, created_date, due_date }) {
   const [active, setActive] = useState(false)

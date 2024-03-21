@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Column from './Column'
-import Navbar from '../components/Navbar';
+import Navbar from './Navbar';
 import Sidebar from '../components/Sidebar';
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { IoClose } from "react-icons/io5";

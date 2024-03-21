@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useGetCardsQuery, useUpdateCardMutation } from '../store/cardApiSlice';
 import Card from './Card'
 import Button from '../components/Button';
-import Modal from './Modal';
+import AddEditCard from './AddEditCard';
 import {motion} from 'framer-motion'
 import { FaSpinner } from "react-icons/fa6";
 
@@ -54,7 +54,7 @@ function Column({title, id}) {
         { filteredCards.map(card => <Card {...card} key={card.id}/>) }
         </div>
         <motion.div layout className='text-start ml-1'>
-        {displayModal? <Modal setDisplayModal={setDisplayModal} columnId={id}/> : <Button text={"Add"} onClick ={handleOnClick}/>}
+        {displayModal? <AddEditCard setDisplayModal={setDisplayModal} columnId={id}/> : <Button text={"Add"} onClick ={handleOnClick}/>}
         </motion.div>
       </motion.div>
 
