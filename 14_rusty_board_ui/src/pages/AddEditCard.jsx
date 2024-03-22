@@ -5,6 +5,7 @@ import { useCreateCardMutation } from '../store/cardApiSlice';
 import { nanoid } from 'nanoid';
 import { useUpdateCardMutation } from '../store/cardApiSlice';
 import Modal from '../components/Modal';
+import { getCurrentDate } from '../utils/date';
 
 function AddEditCard({setDisplayModal,columnId,card}) {
   const [active, setActive] =useState(true);
@@ -17,19 +18,7 @@ function AddEditCard({setDisplayModal,columnId,card}) {
     setActive(false)
     setDisplayModal(false)
   }
-  const getCurrentDate = () => {
-    let today = new Date();
-    let dd = today.getDate();
-    let mm =  today.getMonth()+1;
-    let yyyy = today.getFullYear();
-    if(dd<10){
-      dd='0' + dd;
-    }
-    if(mm<0) {
-      mm = '0' + mm;
-    }
-    return `${dd}/${mm}/${yyyy}`
-  }
+
   const onSubmit = (data) => {  
     if(card) {
       const cardId= card.id;

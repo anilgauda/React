@@ -2,11 +2,17 @@ import React, { useState } from 'react'
 import Modal from '../components/Modal'
 import Button from '../components/Button';
 import { useForm } from 'react-hook-form';
+import {getCurrentDate} from '../utils/date';
+import { nanoid } from 'nanoid';
+import{useCreateBoardMutation} from '../store/boardApiSlice';
+import{useCreateColumnMutation} from '../store/columnApiSlice';
+
 
 function CreateBoard({ setDisplayModal }) {
     const [active, setActive] = useState(false)
     const { register, handleSubmit } = useForm();
-
+    const [createBoard]=useCreateBoardMutation();
+    const [createColumn] =useCreateColumnMutation();
     const handleOnClose = (event) => {
         event.preventDefault();
         setActive(false)
@@ -14,7 +20,29 @@ function CreateBoard({ setDisplayModal }) {
     }
 
     const onSubmit =(data) =>{
-        console.log(data)
+        const board_id = nanoid();
+
+        const board_data = {
+            "id": board_id,
+            "owner_user_id": 1,
+            "name": data.board_name,
+            "is_public": data.is_public,
+            "created_date": getCurrentDate()
+          }
+          createBoard(board_data);
+        for (let i=1;i<=4;i++){
+
+            const column_data = {
+                "id": nanoid(),
+                "board_id": board_id,
+                "name": data[`col${i}`],
+                "position": `c${i}`
+              }
+              createColumn(column_data);
+        }
+
+        setDisplayModal(false);
+        setActive(false);
     }
 
     return (<Modal className={`${active ? "" : "hidden"}`}>
@@ -23,7 +51,7 @@ function CreateBoard({ setDisplayModal }) {
                 <form className='flex flex-wrap flex-col w-full h-full p-5 text-slate-700 gap-1' onSubmit={handleSubmit(onSubmit)}>
                 <span className='text-slate-50'>Board name:</span> <input type="text" placeholder='Enter Name' className='p-1' {...register("board_name",{required:true})}/>
                 <div className='mt-2'>
-                <span className='text-slate-50'>Is it private ?</span> <input type="checkbox" className='ml-4' {...register("is_private")}/>
+                <span className='text-slate-50'>Is it Public Board ?</span> <input type="checkbox" className='ml-4' {...register("is_public")}/>
 
                 </div>
             <div className='m-6  h-1 bg-slate-50 rounded'></div>

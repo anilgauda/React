@@ -7,8 +7,15 @@ export const columnApiSlice = createApi({
     endpoints: (builder) =>({
         getColumnsByBoardId: builder.query({
             query:(id) =>`columns/?board_id=${id}`
+        }),
+        createColumn:builder.mutation({
+            query:(body) =>({
+                url:'columns/',
+                method:"POST",
+                body
+            })
         })
     })
 })
 
-export const {useGetColumnsByBoardIdQuery} = columnApiSlice
+export const {useGetColumnsByBoardIdQuery,useCreateColumnMutation} = columnApiSlice

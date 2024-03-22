@@ -7,8 +7,15 @@ export const boardApiSlice = createApi({
     endpoints: (builder) =>({
         getBoardById: builder.query({
             query:(id) =>`boards/${id}`
+        }),
+        createBoard: builder.mutation({
+            query:(body) =>({
+                url:'boards/',
+                method: 'POST',
+                body
+            })
         })
     })
 })
 
-export const {useGetBoardByIdQuery}= boardApiSlice
+export const {useGetBoardByIdQuery,useCreateBoardMutation}= boardApiSlice

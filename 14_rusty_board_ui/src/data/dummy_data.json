@@ -166,6 +166,14 @@
       "column_id": 2,
       "created_date": "21/3/2024",
       "id": "UlO9kY4TiKLzmC1A6p4BF"
+    },
+    {
+      "title": "Test 1",
+      "description": "Test 1",
+      "due_date": "2024-03-22",
+      "column_id": 1,
+      "created_date": "22/3/2024",
+      "id": "1oIVy-_oZIvemAGYQee3X"
     }
   ],
   "boards": [
@@ -175,6 +183,20 @@
       "name": "Default Board",
       "is_public": true,
       "created_date": "20/3/2024"
+    },
+    {
+      "id": "-0me1YrtI2l4yx3qUbBox",
+      "owner_user_id": 1,
+      "name": "Board 1",
+      "is_public": false,
+      "created_date": "22/3/2024"
+    },
+    {
+      "id": "cPE6Z8OwViXiqYRbfo6b9",
+      "owner_user_id": 1,
+      "name": "Board 3",
+      "is_public": false,
+      "created_date": "22/3/2024"
     }
   ],
   "columns": [
@@ -201,6 +223,54 @@
       "board_id": 1,
       "name": "Completed",
       "position": "c4"
+    },
+    {
+      "id": "UinxTJhSG1H5cVGxTQhTi",
+      "board_id": "-0me1YrtI2l4yx3qUbBox",
+      "name": "Col 2",
+      "position": "c2"
+    },
+    {
+      "id": "Wm_5nJ9BTLxj9HI5ibz1O",
+      "board_id": "-0me1YrtI2l4yx3qUbBox",
+      "name": "Col 1",
+      "position": "c1"
+    },
+    {
+      "id": "BEpKD4tQZ9gbcEuBjEKlR",
+      "board_id": "-0me1YrtI2l4yx3qUbBox",
+      "name": "Col 4",
+      "position": "c4"
+    },
+    {
+      "id": "E3p5KapNzU5nq2VQRbNW7",
+      "board_id": "-0me1YrtI2l4yx3qUbBox",
+      "name": "Col 3",
+      "position": "c3"
+    },
+    {
+      "id": "yNOvhsrBVLwvs6JHbS9B5",
+      "board_id": "cPE6Z8OwViXiqYRbfo6b9",
+      "name": "Todo",
+      "position": "c1"
+    },
+    {
+      "id": "edwInsJgyIjJPAL5y-gLz",
+      "board_id": "cPE6Z8OwViXiqYRbfo6b9",
+      "name": "inprogress",
+      "position": "c3"
+    },
+    {
+      "id": "8-AotFHiIN6u3RKIEY9v2",
+      "board_id": "cPE6Z8OwViXiqYRbfo6b9",
+      "name": "done",
+      "position": "c4"
+    },
+    {
+      "id": "qV-ePCExPlQLCIDTtXXm0",
+      "board_id": "cPE6Z8OwViXiqYRbfo6b9",
+      "name": "Backlog",
+      "position": "c2"
     }
   ]
 }
